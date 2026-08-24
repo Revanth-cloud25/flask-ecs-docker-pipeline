@@ -2,16 +2,17 @@ pipeline {
     agent any
 
     environment {
-        AWS_ACCOUNT_ID = '343779419117'
-        AWS_REGION = 'ap-south-1'
-        ECR_REPO = 'flask-ecs-app'
-        IMAGE_TAG = 'latest'
-        ECR_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}"
-        ECS_CLUSTER = 'flask-ecs-cluster'
-        ECS_SERVICE = 'flask-ecs-service'
-        AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
-    }
+    AWS_ACCOUNT_ID = '343779419117'
+    AWS_REGION = 'ap-south-1'
+    ECR_REPO = 'flask-ecs-app'
+    IMAGE_TAG = 'latest'
+    ECR_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}"
+    ECS_CLUSTER = 'flask-ecs-cluster'
+    ECS_SERVICE = 'flask-ecs-service'
+    AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
+    AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
+    PATH = "C:\\Users\\Revanth D\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin;C:\\Program Files\\Amazon\\AWSCLIV2;${env.PATH}"
+}
 
     stages {
         stage('Checkout') {
